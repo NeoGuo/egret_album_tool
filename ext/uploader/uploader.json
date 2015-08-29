@@ -1,0 +1,5 @@
+{
+    "name":"uploader",
+    "source":"./",
+    "file_list":["uploader_h5.js","uploader.d.ts"]
+}
