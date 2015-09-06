@@ -37,3 +37,7 @@ private bytesHandler(thisRef:any,imgBytes:ArrayBuffer):void {
     console.log("大图数据:"+imgBytes);
 }
 ```
+
+已知问题：
+
+* iOS下用摄像头拍照的照片，角度不对(http://blog.csdn.net/cdnight/article/details/35236793)
