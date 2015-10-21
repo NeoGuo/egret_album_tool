@@ -1,0 +1,12 @@
+{
+	"name": "egret",
+	"version": "2.5.1",
+	"modules": [
+		{
+			"name": "h5uploader",
+			"description": "h5uploader",
+			"files": ["h5uploader.js","wxuploader.js","h5uploader.d.ts"],
+			"root": "src"
+		}
+	]
+}

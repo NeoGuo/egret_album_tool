@@ -39,7 +39,7 @@ function tmpCreateImage(uri,file) {
     var image = new Image();
     image.onload = function(){
         var canvas = document.createElement("canvas");
-        if(image.height > MAX_HEIGHT) {
+        if(!isWeixin() && image.height > MAX_HEIGHT) {
             //宽度等比例缩放
             image.width *= MAX_HEIGHT / image.height;
             image.height = MAX_HEIGHT;
@@ -52,9 +52,11 @@ function tmpCreateImage(uri,file) {
         } else {
             smallURL = uri;
         }
+        image.width = image.height = 1;
         selectedHandler & selectedHandler(thisRef,smallURL,file);
     }
     image.src = uri;
+    image.style.visibility = "hidden";
     document.body.appendChild(image);
 }
 function myCreateObjectURL(blob){
@@ -80,4 +82,12 @@ function getImageData(file,bytesFunc,thisValue) {
     }
     reader.onload = tmpLoad;
     reader.readAsArrayBuffer(file);
+}
+function isWeixin(){
+    var ua = navigator.userAgent.toLowerCase();
+    if(ua.match(/MicroMessenger/i)=="micromessenger") {
+        return true;
+    } else {
+        return false;
+    }
 }
